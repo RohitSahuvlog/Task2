@@ -6,18 +6,18 @@ const {authentication} =require("./middlewares/authentication")
 const {managerouter} = require("./router/manageuser.route")
 const app = express()
 app.use(express.urlencoded({extended:true}))
-require("dotenv").config()
+
 app.use(express.json())
 app.use(cors())
-PORT =   process.env.PORT|| 8000
+PORT = 8000 ||  process.env.PORT
 
-
-app.use("/auth",userrouter)
-app.use(authentication)
-app.use("/manage",managerouter)
 app.get("/",(req,res)=>{
     res.send("Home page")
 })
+app.use("/auth",userrouter)
+app.use(authentication)
+app.use("/manage",managerouter)
+
 
 app.listen(PORT,async(req,res)=>{
 
@@ -32,5 +32,5 @@ console.log("connect to mongodb")
         console.log(" error connect to mongodb") 
     }
 
-    console.log(`server is start at ${PORT}`);
+    console.log(`server is start at ${PORT}`)
 })
