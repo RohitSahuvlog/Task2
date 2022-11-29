@@ -32,5 +32,5 @@ console.log("connect to mongodb")
         console.log(" error connect to mongodb") 
     }
 
-    console.log(`server is start at ${PORT}`)
+    console.log(`server is start at ${PORT}`);
 })
