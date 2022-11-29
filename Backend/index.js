@@ -6,10 +6,10 @@ const {authentication} =require("./middlewares/authentication")
 const {managerouter} = require("./router/manageuser.route")
 const app = express()
 app.use(express.urlencoded({extended:true}))
-
+require("dotenv").config()
 app.use(express.json())
 app.use(cors())
-PORT = 8000 ||  process.env.PORT
+PORT =  process.env.PORT || 8000
 
 app.get("/",(req,res)=>{
     res.send("Home page")
